@@ -9,10 +9,12 @@ RUN meteor install-sdk android \
   && meteor create try-meteor \
   && cd try-meteor \
   && meteor update \
+  && meteor add aldeed:autoform \
   && meteor add iron:router \
   && meteor add materialize:materialize \
   && meteor add momentjs:moment \
   && meteor add mquandalle:bower \
+  && meteor add mquandalle:jade \
   && meteor add useraccounts:materialize \
   && meteor add velocity:html-reporter \
   && rm -rf try-meteor
