@@ -5,4 +5,11 @@ RUN apt-get update \
  && apt-get -q -y clean \
  && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 RUN curl https://install.meteor.com/ | sh
-RUN meteor install-sdk android
+RUN meteor install-sdk android \
+  && meteor create try-meteor \
+  && cd try-meteor \
+  && meteor update \
+  && meteor add iron:router \
+  && meteor add momentjs:moment \
+  && meteor add materialize:materialize \
+  && rm -rf try-meteor
