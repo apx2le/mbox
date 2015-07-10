@@ -5,10 +5,10 @@ RUN apt-get update \
   && apt-get -q -y clean \
   && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 RUN curl https://install.meteor.com/ | sh
-RUN meteor install-sdk android \
-  && meteor create try-meteor \
+RUN meteor install-sdk android
+RUN meteor create try-meteor \
   && cd try-meteor \
-  && meteor update \
+  && TMPDIR=/var/tmp meteor update \
   && meteor add aldeed:autoform \
   && meteor add iron:router \
   && meteor add materialize:materialize \
@@ -16,5 +16,4 @@ RUN meteor install-sdk android \
   && meteor add mquandalle:bower \
   && meteor add mquandalle:jade \
   && meteor add useraccounts:materialize \
-  && meteor add velocity:html-reporter \
-  && rm -rf try-meteor
+  && meteor add velocity:html-reporter
